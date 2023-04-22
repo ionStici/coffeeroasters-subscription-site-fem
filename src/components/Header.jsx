@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './../styles/Header.module.scss';
 import { Link } from 'react-router-dom';
-
 import logo from './../assets/shared/desktop/logo.svg';
 import icon_hamburger from './../assets/shared/mobile/icon-hamburger.svg';
 import icon_close from './../assets/shared/mobile/icon-close.svg';
@@ -11,16 +10,16 @@ const Header = function () {
 
     const toggleNav = ({ target }) => {
         if (target.dataset.nav === 'close') {
-            target.dataset.nav = 'open';
             target.querySelector('img').src = icon_close;
             nav.current.classList.add(styles.open);
+            target.dataset.nav = 'open';
             return;
         }
 
         if (target.dataset.nav === 'open') {
-            target.dataset.nav = 'close';
             target.querySelector('img').src = icon_hamburger;
             nav.current.classList.remove(styles.open);
+            target.dataset.nav = 'close';
             return;
         }
     };

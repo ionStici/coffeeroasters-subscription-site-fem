@@ -13,7 +13,7 @@ const Hero = function (props) {
                 <p className={styles.text}>{props.text}</p>
 
                 {props.button ? (
-                    <Link className={styles.link} to={`/${props.page}`}>
+                    <Link className={styles.link} to="/plan">
                         {props.button}
                     </Link>
                 ) : (

@@ -1,7 +1,6 @@
 :root {
     --barlow: 'Barlow', sans-serif;
     --fraunces: 'Fraunces', serif;
-
     --color-dark-cyan: hsla(179, 81%, 29%, 1);
     --color-dark-grey-blue: hsla(216, 20%, 25%, 1);
     --color-pale-orange: hsla(25, 95%, 86%, 1);
@@ -23,7 +22,4 @@
 
 html {
     background-color: var(--color-light-cream);
-}
-
-body {
 }
