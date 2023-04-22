@@ -1,31 +1,83 @@
+// // // // // // // // // // // // // // // // // // // //
+
 .section {
     max-width: 548px;
     margin: 0 auto;
     padding: 0 24px;
+
+    @media only screen and (min-width: 768px) {
+        padding: 0 40px;
+        max-width: 1360px;
+    }
 }
 
 .wrapper {
     width: 100%;
     border-radius: 10px;
-    padding: 100px 24px 0 24px;
-    text-align: center;
+    padding: 24px;
     background-size: cover;
     background-position: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    @media only screen and (min-width: 768px) {
+        padding: 0 58px;
+        text-align: left;
+    }
+
+    @media only screen and (min-width: 1050px) {
+        padding: 0 85px;
+    }
 }
 
 .home {
     height: 500px;
     background-image: url(./../assets/home/mobile/image-hero-coffeepress.jpg);
+
+    @media only screen and (min-width: 768px) {
+        background-image: url(./../assets/home/tablet/image-hero-coffeepress.jpg);
+    }
+
+    @media only screen and (min-width: 1050px) {
+        background-image: url(./../assets/home/desktop/image-hero-coffeepress.jpg);
+    }
 }
 
 .about {
     height: 400px;
     background-image: url(./../assets/about/mobile/image-hero-whitecup.jpg);
+
+    @media only screen and (min-width: 768px) {
+        background-image: url(./../assets/about/tablet/image-hero-whitecup.jpg);
+    }
+
+    @media only screen and (min-width: 1050px) {
+        background-image: url(./../assets/about/desktop/image-hero-whitecup.jpg);
+    }
 }
 
 .plan {
     height: 400px;
     background-image: url(./../assets/plan/mobile/image-hero-blackcup.jpg);
+
+    @media only screen and (min-width: 768px) {
+        background-image: url(./../assets/plan/tablet/image-hero-blackcup.jpg);
+    }
+
+    @media only screen and (min-width: 1050px) {
+        background-image: url(./../assets/plan/desktop/image-hero-blackcup.jpg);
+    }
+}
+
+// // // // // // // // // // // // // // // // // // // //
+
+.content_wrapper {
+    max-width: 398px;
+
+    @media only screen and (min-width: 1050px) {
+        max-width: 500px;
+    }
 }
 
 .title {
@@ -36,6 +88,17 @@
     line-height: 40px;
 
     margin-bottom: 24px;
+
+    @media only screen and (min-width: 768px) {
+        font-size: 48px;
+        line-height: 48px;
+    }
+
+    @media only screen and (min-width: 1050px) {
+        font-size: 72px;
+        line-height: 72px;
+        margin-bottom: 32px;
+    }
 }
 
 .text {
@@ -46,7 +109,14 @@
     font-size: 15px;
     line-height: 25px;
 
-    margin-bottom: 39px;
+    margin-bottom: 40px;
+
+    @media only screen and (min-width: 1050px) {
+        max-width: 430px;
+        font-size: 16px;
+        line-height: 26px;
+        margin-bottom: 56px;
+    }
 }
 
 .link,
@@ -67,4 +137,16 @@
     margin: 0 auto;
     background-color: var(--color-dark-cyan);
     border-radius: 6px;
+
+    transition: background-color 0.15s;
+
+    &:hover {
+        background-color: var(--color-dark-cyan-hover);
+    }
+
+    @media only screen and (min-width: 768px) {
+        margin: 0;
+    }
 }
+
+// // // // // // // // // // // // // // // // // // // //

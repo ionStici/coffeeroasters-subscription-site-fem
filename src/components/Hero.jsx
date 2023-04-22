@@ -9,16 +9,18 @@ const Hero = function (props) {
                 // prettier-ignore
                 className={`${styles.wrapper} ${props.page === 'home' ? styles.home : ''} ${props.page === 'about' ? styles.about : ''} ${props.page === 'plan' ? styles.plan : ''}`}
             >
-                <h1 className={styles.title}>{props.title}</h1>
-                <p className={styles.text}>{props.text}</p>
+                <div className={styles.content_wrapper}>
+                    <h1 className={styles.title}>{props.title}</h1>
+                    <p className={styles.text}>{props.text}</p>
 
-                {props.button ? (
-                    <Link className={styles.link} to="/plan">
-                        {props.button}
-                    </Link>
-                ) : (
-                    ''
-                )}
+                    {props.button ? (
+                        <Link className={styles.link} to="/plan">
+                            {props.button}
+                        </Link>
+                    ) : (
+                        ''
+                    )}
+                </div>
             </div>
         </section>
     );
