@@ -1,11 +1,13 @@
 // // // // // // // // // // // // // // // // // // // //
 
 .header {
+    position: relative;
+}
+
+.wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
-
     max-width: 548px;
     margin: 0 auto;
     padding: 23.5px 14px 31.5px 24px;
@@ -52,6 +54,7 @@
     position: absolute;
     top: 90px;
     left: 0;
+    z-index: 5;
 
     width: 100vw;
     height: 577px;

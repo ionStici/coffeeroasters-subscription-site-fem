@@ -27,44 +27,46 @@ const Header = function () {
 
     return (
         <header className={styles.header}>
-            <Link className={styles.logo_link} to="/">
-                <img
-                    className={styles.logo}
-                    width="237"
-                    height="27"
-                    src={logo}
-                    alt=""
-                />
-            </Link>
+            <div className={styles.wrapper}>
+                <Link className={styles.logo_link} to="/">
+                    <img
+                        className={styles.logo}
+                        width="237"
+                        height="27"
+                        src={logo}
+                        alt=""
+                    />
+                </Link>
 
-            <button
-                className={styles.nav_btn}
-                onClick={toggleNav}
-                data-nav="close"
-                aria-label="Toggle Navigation Bar"
-            >
-                <img src={icon_hamburger} alt="" />
-            </button>
+                <button
+                    className={styles.nav_btn}
+                    onClick={toggleNav}
+                    data-nav="close"
+                    aria-label="Toggle Navigation Bar"
+                >
+                    <img src={icon_hamburger} alt="" />
+                </button>
 
-            <nav className={styles.nav} ref={nav}>
-                <ul className={styles.ul}>
-                    <li className={styles.li}>
-                        <Link className={styles.link} to="/home">
-                            Home
-                        </Link>
-                    </li>
-                    <li className={styles.li}>
-                        <Link className={styles.link} to="/about">
-                            About Us
-                        </Link>
-                    </li>
-                    <li className={styles.li}>
-                        <Link className={styles.link} to="/plan">
-                            Create Your Plan
-                        </Link>
-                    </li>
-                </ul>
-            </nav>
+                <nav className={styles.nav} ref={nav}>
+                    <ul className={styles.ul}>
+                        <li className={styles.li}>
+                            <Link className={styles.link} to="/home">
+                                Home
+                            </Link>
+                        </li>
+                        <li className={styles.li}>
+                            <Link className={styles.link} to="/about">
+                                About Us
+                            </Link>
+                        </li>
+                        <li className={styles.li}>
+                            <Link className={styles.link} to="/plan">
+                                Create Your Plan
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </header>
     );
 };
