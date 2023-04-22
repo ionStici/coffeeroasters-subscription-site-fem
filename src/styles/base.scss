@@ -21,7 +21,9 @@
     box-sizing: border-box;
 }
 
+html {
+    background-color: var(--color-light-cream);
+}
+
 body {
-    font-family: var(--barlow);
-    font-family: var(--fraunces);
 }
