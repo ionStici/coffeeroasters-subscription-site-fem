@@ -68,6 +68,7 @@
     }
 
     @media only screen and (min-width: 768px) {
+        margin-right: -10px;
         margin-left: auto;
     }
 }
@@ -81,15 +82,13 @@
     }
 }
 
-.li {
-    &:not(:last-child) {
-        @media only screen and (max-width: 767px) {
-            margin-bottom: 32px;
-        }
+.li:not(:last-child) {
+    @media only screen and (max-width: 767px) {
+        margin-bottom: 32px;
+    }
 
-        @media only screen and (min-width: 768px) {
-            margin-right: 12px;
-        }
+    @media only screen and (min-width: 768px) {
+        margin-right: 12px;
     }
 }
 
