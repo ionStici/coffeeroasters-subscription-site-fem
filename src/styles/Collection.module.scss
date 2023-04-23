@@ -1,10 +1,23 @@
 .section {
     margin-bottom: 120px;
+
+    @media only screen and (min-width: 768px) {
+        margin-bottom: 144px;
+    }
 }
 
 .wrapper {
     max-width: 500px;
     margin: 0 auto;
+    position: relative;
+
+    @media only screen and (min-width: 768px) {
+        max-width: revert;
+        padding-top: 70px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .header {
@@ -15,6 +28,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media only screen and (min-width: 768px) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        height: 118px;
+        margin-bottom: 0;
+    }
 
     &::after {
         content: '';
@@ -39,11 +61,24 @@
     font-weight: 900;
     font-size: 40px;
     line-height: 72px;
+
+    @media only screen and (min-width: 768px) {
+        font-size: 96px;
+        line-height: 72px;
+    }
 }
 
 .card {
     &:not(:last-child) {
         margin-bottom: 60px;
+
+        @media only screen and (min-width: 768px) {
+            margin-bottom: 45px;
+        }
+    }
+
+    @media only screen and (min-width: 768px) {
+        display: flex;
     }
 }
 
@@ -53,10 +88,22 @@
     margin: 0 auto 24px auto;
     position: relative;
     right: -12px;
+
+    @media only screen and (min-width: 768px) {
+        width: 255px;
+        margin: 0 35px 0 0;
+        right: 0;
+    }
 }
 
 .box {
     text-align: center;
+
+    @media only screen and (min-width: 768px) {
+        width: 282px;
+        padding-top: 30px;
+        text-align: left;
+    }
 }
 
 .h3 {
@@ -66,6 +113,10 @@
     font-size: 24px;
     line-height: 32px;
     margin-bottom: 16px;
+
+    @media only screen and (min-width: 768px) {
+        margin-bottom: 24px;
+    }
 }
 
 .text {
@@ -76,4 +127,8 @@
     line-height: 25px;
 
     padding: 0 48px;
+
+    @media only screen and (min-width: 768px) {
+        padding: 0;
+    }
 }

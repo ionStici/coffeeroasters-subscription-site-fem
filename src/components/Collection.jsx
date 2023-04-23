@@ -9,7 +9,7 @@ const Collection = function () {
         <section className={styles.section}>
             <div className={styles.wrapper}>
                 <div className={styles.header}>
-                    <h2 className={styles.h2}>Our Collection</h2>
+                    <h2 className={styles.h2}>our collection</h2>
                 </div>
 
                 <div className={styles.card}>
