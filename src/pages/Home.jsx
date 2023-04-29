@@ -1,6 +1,7 @@
 import Header from './../components/Header';
 import Hero from './../components/Hero';
 import Collection from '../components/Collection';
+import Features from '../components/Features';
 
 const Home = function () {
     return (
@@ -14,6 +15,7 @@ const Home = function () {
                     button="Create your plan"
                 />
                 <Collection />
+                <Features />
             </main>
         </>
     );
