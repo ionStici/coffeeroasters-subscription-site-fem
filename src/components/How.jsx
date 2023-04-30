@@ -15,10 +15,10 @@ const How = function (props) {
                     <div className={styles.empty_title}></div>
                 )}
 
-                <div className={styles.circles}>
-                    <div className={styles.circle}></div>
-                    <div className={styles.circle}></div>
-                    <div className={styles.circle}></div>
+                <div className={`${styles.circles}`}>
+                    <div className={`${styles.circle} ${props.btn === true ? styles.bg_white : ''}`}></div>
+                    <div className={`${styles.circle} ${props.btn === true ? styles.bg_white : ''}`}></div>
+                    <div className={`${styles.circle} ${props.btn === true ? styles.bg_white : ''}`}></div>
                 </div>
 
                 {/* prettier-ignore */}
@@ -52,7 +52,7 @@ const How = function (props) {
                         <h2 className={styles.sub_title}>Receive and enjoy!</h2>
                         <p className={styles.text}>
                             We ship your package within 48 hours, freshly
-                            roasted. Sit back and enjoy award-winning
+                            roasted. Sit back and enjoy award-winning 
                             world-class coffees curated to provide a distinct
                             tasting experience.
                         </p>

@@ -3,6 +3,11 @@
 .section {
     text-align: center;
     margin-bottom: 120px;
+
+    @media only screen and (min-width: 768px) {
+        text-align: left;
+        margin-bottom: 144px;
+    }
 }
 
 .wrapper {
@@ -11,6 +16,7 @@
     padding: 0 24px;
 
     @media only screen and (min-width: 768px) {
+        max-width: 955px;
         padding: 0 40px;
     }
 
@@ -34,22 +40,71 @@
     line-height: 32px;
 
     margin-bottom: 80px;
+
+    @media only screen and (min-width: 768px) {
+        margin-bottom: 40px;
+    }
 }
 
 .empty_title {
     padding-bottom: 80px;
+
+    @media only screen and (min-width: 768px) {
+        padding-bottom: 97px;
+    }
 }
 
 .circles {
     display: none;
+
+    @media only screen and (min-width: 768px) {
+        display: flex;
+        column-gap: 202px;
+        margin-bottom: 48px;
+        position: relative;
+    }
+
+    &::after {
+        @media only screen and (min-width: 768px) {
+            content: '';
+            position: absolute;
+            z-index: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 14.5px;
+
+            width: 467px;
+            height: 2px;
+            background-color: var(--color-pale-orange);
+        }
+    }
 }
 
 .circle {
+    @media only screen and (min-width: 768px) {
+        width: 31px;
+        height: 31px;
+        border-radius: 50%;
+        border: 2px solid var(--color-dark-cyan);
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.bg_white {
+    @media only screen and (min-width: 768px) {
+        background-color: var(--color-light-cream);
+    }
 }
 
 // // // // // // // // // // // // // // // // // // // //
 
 .content_wrapper {
+    @media only screen and (min-width: 768px) {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 285px));
+        column-gap: 10px;
+    }
 }
 
 .text_white {
@@ -63,6 +118,10 @@
 .box {
     &:not(:last-child) {
         margin-bottom: 56px;
+
+        @media only screen and (min-width: 768px) {
+            margin-bottom: 0;
+        }
     }
 }
 
@@ -74,6 +133,10 @@
     line-height: 72px;
 
     margin-bottom: 24px;
+
+    @media only screen and (min-width: 768px) {
+        margin-bottom: 42px;
+    }
 }
 
 .sub_title {
@@ -83,6 +146,10 @@
     line-height: 32px;
 
     margin-bottom: 24px;
+
+    @media only screen and (min-width: 768px) {
+        margin-bottom: 38px;
+    }
 }
 
 .text {
@@ -96,10 +163,18 @@
 
 .btn {
     margin-top: 79px !important;
+
+    @media only screen and (min-width: 768px) {
+        margin-top: 44px !important;
+    }
 }
 
 .empty_btn {
     padding-top: 79px;
+
+    @media only screen and (min-width: 768px) {
+        margin-bottom: 96px;
+    }
 }
 
 // // // // // // // // // // // // // // // // // // // //
