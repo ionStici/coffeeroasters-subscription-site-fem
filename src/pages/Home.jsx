@@ -3,6 +3,7 @@ import Hero from './../components/Hero';
 import Collection from '../components/Collection';
 import Features from '../components/Features';
 import How from '../components/How';
+import Footer from '../components/Footer';
 
 const Home = function () {
     return (
@@ -19,6 +20,7 @@ const Home = function () {
                 <Features />
                 <How btn={true} />
             </main>
+            <Footer />
         </>
     );
 };
