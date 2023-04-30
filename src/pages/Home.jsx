@@ -2,6 +2,7 @@ import Header from './../components/Header';
 import Hero from './../components/Hero';
 import Collection from '../components/Collection';
 import Features from '../components/Features';
+import How from '../components/How';
 
 const Home = function () {
     return (
@@ -16,6 +17,7 @@ const Home = function () {
                 />
                 <Collection />
                 <Features />
+                <How btn={true} />
             </main>
         </>
     );
