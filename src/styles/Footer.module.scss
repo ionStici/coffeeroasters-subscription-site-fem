@@ -2,15 +2,33 @@
 
 .footer {
     padding: 0 24px 72px 24px;
+
+    @media only screen and (min-width: 768px) {
+        padding: 0 40px 72px 40px;
+    }
+
+    @media only screen and (min-width: 1110px) {
+        padding-bottom: 88px;
+    }
 }
 
 .wrapper {
-    max-width: 1280px;
+    max-width: 500px;
     margin: 0 auto;
     padding: 54px 0;
     background-color: var(--color-grey-bg);
-
     text-align: center;
+
+    @media only screen and (min-width: 768px) {
+        max-width: 1280px;
+    }
+
+    @media only screen and (min-width: 1110px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 47px 85px;
+    }
 }
 
 // // // // // // // // // // // // // // // // // // // //
@@ -18,8 +36,18 @@
 .logo {
     width: 217px;
     height: 24px;
-
     margin-bottom: 48px;
+
+    @media only screen and (min-width: 768px) {
+        width: revert;
+        height: revert;
+        margin-bottom: 32px;
+    }
+
+    @media only screen and (min-width: 1110px) {
+        margin-bottom: 0;
+        margin-right: 103px;
+    }
 }
 
 // // // // // // // // // // // // // // // // // // // //
@@ -28,9 +56,24 @@
     list-style: none;
     margin-bottom: 48px;
 
+    @media only screen and (min-width: 768px) {
+        display: flex;
+        justify-content: center;
+        column-gap: 32px;
+        margin-bottom: 65px;
+    }
+
+    @media only screen and (min-width: 1110px) {
+        margin-bottom: 0;
+    }
+
     &__item {
         &:not(:last-child) {
             margin-bottom: 24px;
+
+            @media only screen and (min-width: 768px) {
+                margin-bottom: 0;
+            }
         }
     }
 }
@@ -67,17 +110,16 @@
     li:hover path {
         fill: var(--color-pale-orange);
     }
+
+    @media only screen and (min-width: 1110px) {
+        margin-left: auto;
+    }
 }
 
 .icon_link,
 .icon_link:link,
 .icon_link:visited {
     text-decoration: none;
-}
-
-.icon {
-    path {
-    }
 }
 
 // // // // // // // // // // // // // // // // // // // //
