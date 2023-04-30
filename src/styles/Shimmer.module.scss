@@ -1,0 +1,92 @@
+// // // // // // // // // // // // // // // // // // // //
+
+@keyframes shimmerEffect {
+    0% {
+        background-position: -468px 0;
+    }
+    100% {
+        background-position: 468px 0;
+    }
+}
+
+// // // // // // // // // // // // // // // // // // // //
+
+@mixin test {
+    animation: shimmerEffect 1s linear infinite;
+    background: linear-gradient(
+        to right,
+        rgba(204, 204, 204, 0.25) 25%,
+        rgba(204, 204, 204, 0.5) 50%,
+        rgba(204, 204, 204, 0.25) 75%
+    );
+    background-size: 800px 100%;
+
+    border-radius: 8px;
+}
+
+// // // // // // // // // // // // // // // // // // // //
+
+.shimmer {
+    content: '';
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-light-cream);
+    overflow: scroll;
+}
+
+.hide {
+    display: none;
+    visibility: hidden;
+}
+
+.wrapper {
+    max-width: 500px;
+    margin: 24px auto;
+    padding: 0 24px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.nav {
+    height: 35px;
+    margin-bottom: 32px;
+    @include test;
+}
+
+.hero {
+    height: 500px;
+    margin-bottom: 120px;
+    @include test;
+}
+
+.title {
+    height: 72px;
+    margin-bottom: 24px;
+    @include test;
+}
+
+.img {
+    width: 200px;
+    height: 157px;
+    margin: 0 auto 24px auto;
+    @include test;
+}
+
+.name {
+    height: 32px;
+    margin-bottom: 16px;
+    @include test;
+}
+
+.text {
+    height: 50px;
+    margin-bottom: 60px;
+    @include test;
+}
+
+// // // // // // // // // // // // // // // // // // // //

@@ -2,10 +2,14 @@ import Header from './../components/Header';
 import Hero from './../components/Hero';
 import Commitment from '../components/Commitment';
 import Footer from '../components/Footer';
+import Shimmer from '../components/Shimmer';
 
 const About = function () {
+    const toTop = () => window.scroll(0, 0);
+
     return (
         <>
+            <Shimmer toTop={toTop} />
             <Header />
             <main>
                 <Hero

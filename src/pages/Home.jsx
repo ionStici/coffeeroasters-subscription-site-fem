@@ -4,10 +4,14 @@ import Collection from '../components/Collection';
 import Features from '../components/Features';
 import How from '../components/How';
 import Footer from '../components/Footer';
+import Shimmer from '../components/Shimmer';
 
 const Home = function () {
+    const toTop = () => window.scroll(0, 0);
+
     return (
         <>
+            <Shimmer toTop={toTop} />
             <Header />
             <main>
                 <Hero
