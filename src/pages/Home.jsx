@@ -9,9 +9,19 @@ import Shimmer from '../components/Shimmer';
 const Home = function () {
     const toTop = () => window.scroll(0, 0);
 
+    const componentsWithImages = 1;
+    let loadedComponents = 0;
+
+    const checkImagesLoad = function () {
+        loadedComponents++;
+        if (componentsWithImages === loadedComponents) hideShimmer();
+    };
+
+    const hideShimmer = () => true;
+
     return (
         <>
-            <Shimmer toTop={toTop} />
+            <Shimmer toTop={toTop} hideShimmer={hideShimmer} />
             <Header />
             <main>
                 <Hero
@@ -20,7 +30,7 @@ const Home = function () {
                     text="Start your mornings with the world’s best coffees. Try our expertly curated artisan coffees from our best roasters delivered directly to your door, at your schedule."
                     button="Create your plan"
                 />
-                <Collection />
+                <Collection checkImagesLoad={checkImagesLoad} />
                 <Features />
                 <How btn={true} />
             </main>

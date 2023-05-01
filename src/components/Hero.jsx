@@ -9,6 +9,7 @@ const Hero = function (props) {
                 // prettier-ignore
                 className={`${styles.wrapper} ${props.page === 'home' ? styles.home : ''} ${props.page === 'about' ? styles.about : ''} ${props.page === 'plan' ? styles.plan : ''}`}
             >
+                {/* {props.page === 'home'} */}
                 <div className={styles.content_wrapper}>
                     <h1 className={styles.title}>{props.title}</h1>
                     <p className={styles.text}>{props.text}</p>

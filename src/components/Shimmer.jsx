@@ -3,21 +3,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Shimmer = function (props) {
-    const [loading, setLoading] = React.useState(false);
     const layout = React.useRef(null);
     props.toTop();
 
     React.useEffect(() => {
-        const timer = setTimeout(() => setLoading(true), 1000);
-        return () => clearTimeout(timer);
-    }, []);
-
-    React.useEffect(() => {
-        if (loading) {
+        if (props.hideShimmer()) {
             layout.current.classList.add(styles.hide);
             props.toTop();
         }
-    }, [loading]);
+    }, []);
 
     return (
         <div className={styles.shimmer} ref={layout}>
@@ -46,4 +40,5 @@ export default Shimmer;
 
 Shimmer.propTypes = {
     toTop: PropTypes.any,
+    hideShimmer: PropTypes.func,
 };

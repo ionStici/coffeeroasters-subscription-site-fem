@@ -9,7 +9,7 @@ const Plan = function () {
 
     return (
         <>
-            <Shimmer toTop={toTop} />
+            {/* <Shimmer toTop={toTop} /> */}
             <Header />
             <main>
                 <Hero
