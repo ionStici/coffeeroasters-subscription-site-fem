@@ -36,6 +36,22 @@ const Question = function (props) {
         }
     };
 
+    const setBoxActive = function ({ target }) {
+        if (target.classList.contains(styles.active_box)) {
+            target.classList.remove(styles.active_box);
+            return;
+        }
+
+        const boxes = [
+            ...target
+                .closest(`.${styles.boxes_wrapper}`)
+                .querySelectorAll(`.${styles.box}`),
+        ];
+
+        boxes.forEach(box => box.classList.remove(styles.active_box));
+        target.classList.add(styles.active_box);
+    };
+
     return (
         <div className={styles.question} data-dropdown="close">
             <button className={styles.button} onClick={toggleDropdown}>
@@ -46,7 +62,11 @@ const Question = function (props) {
             <div className={styles.boxes_wrapper}>
                 {data.answers.map((a, i) => {
                     return (
-                        <div className={`${styles.box}`} key={i}>
+                        <div
+                            className={`${styles.box}`}
+                            onClick={setBoxActive}
+                            key={i}
+                        >
                             <p className={styles.title}>{a.title}</p>
                             <p className={styles.text}>{a.text}</p>
                         </div>

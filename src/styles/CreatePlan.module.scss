@@ -2,18 +2,31 @@
 
 .section {
     padding: 0 24px;
+
+    @media only screen and (min-width: 768px) {
+        padding: 0 40px;
+    }
 }
 
 .wrapper {
     max-width: 500px;
     margin: 0 auto 120px auto;
+
+    @media only screen and (min-width: 768px) {
+        max-width: 730px;
+        margin-bottom: 144px;
+    }
 }
 
 // // // // // // // // // // // // // // // // // // // //
 
 .question {
     &:not(:last-child) {
-        margin-bottom: 88px;
+        margin-bottom: 110px;
+
+        @media only screen and (min-width: 768px) {
+            margin-bottom: 100px;
+        }
     }
 }
 
@@ -28,7 +41,6 @@
     justify-content: space-between;
     border: none;
     background-color: transparent;
-
     cursor: pointer;
 
     h2 {
@@ -40,10 +52,19 @@
         font-weight: 900;
         font-size: 24px;
         line-height: 28px;
+
+        @media only screen and (min-width: 768px) {
+            font-size: 32px;
+            line-height: 48px;
+        }
     }
 
     div {
         margin-left: 64px;
+
+        @media only screen and (min-width: 768px) {
+            margin-left: 0;
+        }
     }
 
     svg {
@@ -60,15 +81,28 @@
     height: 0;
 
     transition: height 0.25s, margin 0.25s;
+
+    @media only screen and (min-width: 768px) {
+        justify-content: space-between;
+    }
 }
 
 .display_block {
     display: block;
+
+    @media only screen and (min-width: 768px) {
+        display: flex;
+    }
 }
 
 .set_height {
     margin-top: 32px;
     height: 452px;
+
+    @media only screen and (min-width: 768px) {
+        margin-top: 40px;
+        height: 250px;
+    }
 }
 
 .set_opacity {
@@ -94,6 +128,11 @@
         background-color: var(--color-pale-orange);
         color: var(--color-dark-grey-blue);
     }
+
+    @media only screen and (min-width: 768px) {
+        max-width: 223px;
+        height: 250px;
+    }
 }
 
 .active_box {
@@ -107,7 +146,12 @@
     font-size: 24px;
     line-height: 32px;
 
+    pointer-events: none;
     margin-bottom: 8px;
+
+    @media only screen and (min-width: 768px) {
+        margin-bottom: 24px;
+    }
 }
 
 .text {
@@ -115,6 +159,8 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 26px;
+
+    pointer-events: none;
 }
 
 // // // // // // // // // // // // // // // // // // // //

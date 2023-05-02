@@ -17,7 +17,7 @@ const Plan = function () {
         loadedComponents++;
 
         if (componentsWithImages === loadedComponents) {
-            // setTimeout(() => setRemoveShimmer(true), 250);∞¢¢∞
+            // setTimeout(() => setRemoveShimmer(true), 250);
             setRemoveShimmer(true);
         }
     };
