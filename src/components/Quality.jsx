@@ -1,9 +1,18 @@
+import PropTypes from 'prop-types';
 import styles from './../styles/Quality.module.scss';
 import imgMobile from './../assets/about/mobile/image-quality.jpg';
 import imgTablet from './../assets/about/tablet/image-quality.jpg';
 import imgDesktop from './../assets/about/desktop/image-quality.jpg';
 
-const Quality = function () {
+const Quality = function (props) {
+    let imagesLoaded = 0;
+    const imgs = 1;
+
+    const handleImageLoad = function () {
+        imagesLoaded++;
+        if (imagesLoaded === imgs) props.checkImagesLoad();
+    };
+
     return (
         <section className={styles.section}>
             <div className={styles.wrapper}>
@@ -13,6 +22,7 @@ const Quality = function () {
                     <img
                         className={styles.img}
                         src={imgDesktop}
+                        onLoad={handleImageLoad}
                         alt="Cappuccino"
                     />
                 </picture>
@@ -32,6 +42,10 @@ const Quality = function () {
             </div>
         </section>
     );
+};
+
+Quality.propTypes = {
+    checkImagesLoad: PropTypes.func,
 };
 
 export default Quality;

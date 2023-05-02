@@ -5,12 +5,13 @@ import Commitment from '../components/Commitment';
 import Footer from '../components/Footer';
 import Shimmer from '../components/Shimmer';
 import Quality from '../components/Quality';
+import Headquarters from '../components/Headquarters';
 
 const About = function () {
     const [removeShimmer, setRemoveShimmer] = React.useState(false);
     const toTop = () => window.scroll(0, 0);
 
-    const componentsWithImages = 1;
+    const componentsWithImages = 3;
     let loadedComponents = 0;
 
     const checkImagesLoad = function () {
@@ -33,8 +34,9 @@ const About = function () {
                     button={false}
                     checkImagesLoad={checkImagesLoad}
                 />
-                <Commitment />
-                <Quality />
+                <Commitment checkImagesLoad={checkImagesLoad} />
+                <Quality checkImagesLoad={checkImagesLoad} />
+                <Headquarters />
             </main>
             <Footer />
         </>

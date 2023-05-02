@@ -1,9 +1,18 @@
+import PropTypes from 'prop-types';
 import styles from './../styles/Commitment.module.scss';
 import baristaMobile from './../assets/about/mobile/image-commitment.jpg';
 import baristaTab from './../assets/about/tablet/image-commitment.jpg';
 import baristaDesktop from './../assets/about/desktop/image-commitment.jpg';
 
-const Commitment = function () {
+const Commitment = function (props) {
+    let imagesLoaded = 0;
+    const imgs = 1;
+
+    const handleImageLoad = function () {
+        imagesLoaded++;
+        if (imagesLoaded === imgs) props.checkImagesLoad();
+    };
+
     return (
         <section className={styles.section}>
             <div className={styles.wrapper}>
@@ -13,6 +22,7 @@ const Commitment = function () {
                     <img
                         className={styles.barista}
                         src={baristaDesktop}
+                        onLoad={handleImageLoad}
                         alt="Barista brewing coffee"
                     />
                 </picture>
@@ -38,6 +48,10 @@ const Commitment = function () {
             </div>
         </section>
     );
+};
+
+Commitment.propTypes = {
+    checkImagesLoad: PropTypes.func,
 };
 
 export default Commitment;
