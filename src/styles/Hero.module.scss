@@ -26,6 +26,9 @@
     align-items: center;
     text-align: center;
 
+    position: relative;
+    overflow: hidden;
+
     @media only screen and (min-width: 768px) {
         padding: 0 58px;
         text-align: left;
@@ -38,46 +41,35 @@
 
 .home {
     height: 500px;
-    background-image: url(./../assets/home/mobile/image-hero-coffeepress.jpg);
-
-    @media only screen and (min-width: 768px) {
-        background-image: url(./../assets/home/tablet/image-hero-coffeepress.jpg);
-    }
-
-    @media only screen and (min-width: 1110px) {
-        background-image: url(./../assets/home/desktop/image-hero-coffeepress.jpg);
-    }
 }
 
 .about {
     height: 400px;
-    background-image: url(./../assets/about/mobile/image-hero-whitecup.jpg);
-
-    @media only screen and (min-width: 768px) {
-        background-image: url(./../assets/about/tablet/image-hero-whitecup.jpg);
-    }
-
-    @media only screen and (min-width: 1110px) {
-        background-image: url(./../assets/about/desktop/image-hero-whitecup.jpg);
-    }
 }
 
 .plan {
     height: 400px;
-    background-image: url(./../assets/plan/mobile/image-hero-blackcup.jpg);
-
-    @media only screen and (min-width: 768px) {
-        background-image: url(./../assets/plan/tablet/image-hero-blackcup.jpg);
-    }
-
-    @media only screen and (min-width: 1110px) {
-        background-image: url(./../assets/plan/desktop/image-hero-blackcup.jpg);
-    }
 }
+
+.homeHeroImg {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+// // // // // // // // // // // // // // // // // // // //
 
 .content_wrapper {
     max-width: 398px;
     margin: 0 auto;
+
+    position: relative;
+    z-index: 1;
 
     @media only screen and (min-width: 768px) {
         margin: revert;
