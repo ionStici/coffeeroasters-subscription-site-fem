@@ -4,6 +4,7 @@ import Hero from './../components/Hero';
 import Commitment from '../components/Commitment';
 import Footer from '../components/Footer';
 import Shimmer from '../components/Shimmer';
+import Quality from '../components/Quality';
 
 const About = function () {
     const [removeShimmer, setRemoveShimmer] = React.useState(false);
@@ -33,6 +34,7 @@ const About = function () {
                     checkImagesLoad={checkImagesLoad}
                 />
                 <Commitment />
+                <Quality />
             </main>
             <Footer />
         </>

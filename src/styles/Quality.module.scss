@@ -1,0 +1,111 @@
+// // // // // // // // // // // // // // // // // // // //
+
+.section {
+    padding: 78px 24px 0 24px;
+    margin-bottom: 120px;
+
+    @media only screen and (min-width: 768px) {
+        padding: 160px 40px 0 40px;
+        margin-bottom: 144px;
+    }
+
+    @media only screen and (min-width: 1110px) {
+        padding-top: 88px;
+        margin-bottom: 168px;
+    }
+}
+
+.wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 24px 61px 24px;
+    border-radius: 10px;
+    background-color: var(--color-grey-bg);
+
+    text-align: center;
+    color: var(--color-light-cream);
+
+    @media only screen and (min-width: 768px) {
+        max-width: 689px;
+        padding: 0 57px 67px 57px;
+    }
+
+    @media only screen and (min-width: 1110px) {
+        max-width: 1280px;
+        padding: 88px 85px;
+        text-align: left;
+
+        display: flex;
+        column-gap: 125px;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+}
+
+// // // // // // // // // // // // // // // // // // // //
+
+.picture {
+    @media only screen and (min-width: 1110px) {
+        order: 2;
+    }
+}
+
+.img {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: -78px;
+    margin-bottom: 64px;
+
+    @media only screen and (min-width: 768px) {
+        margin-top: -160px;
+    }
+
+    @media only screen and (min-width: 1110px) {
+        width: revert;
+        margin-top: -176px;
+        margin-bottom: 0;
+    }
+}
+
+.content_wrapper {
+    @media only screen and (min-width: 1110px) {
+        max-width: 540px;
+        order: 1;
+    }
+}
+
+.title {
+    font-family: var(--fraunces);
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 28px;
+
+    margin-bottom: 24px;
+
+    @media only screen and (min-width: 768px) {
+        font-size: 32px;
+        line-height: 48px;
+    }
+
+    @media only screen and (min-width: 1110px) {
+        font-size: 40px;
+        line-height: 48px;
+
+        margin-bottom: 32px;
+    }
+}
+
+.text {
+    font-family: var(--barlow);
+    opacity: 0.8;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 25px;
+
+    @media only screen and (min-width: 1110px) {
+        font-size: 16px;
+        line-height: 26px;
+    }
+}
+
+// // // // // // // // // // // // // // // // // // // //
