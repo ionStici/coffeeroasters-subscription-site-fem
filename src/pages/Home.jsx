@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 import Shimmer from '../components/Shimmer';
 
 const Home = function () {
-    const [update, setUpdate] = React.useState(false);
+    const [removeShimmer, setRemoveShimmer] = React.useState(false);
     const toTop = () => window.scroll(0, 0);
 
     const componentsWithImages = 2;
@@ -16,17 +16,15 @@ const Home = function () {
 
     const checkImagesLoad = function () {
         loadedComponents++;
-        if (componentsWithImages === loadedComponents) hideShimmer();
-    };
 
-    const hideShimmer = () => {
-        setUpdate(true);
-        return true;
+        if (componentsWithImages === loadedComponents) {
+            setTimeout(() => setRemoveShimmer(true), 250);
+        }
     };
 
     return (
         <>
-            <Shimmer toTop={toTop} hideShimmer={hideShimmer} />
+            <Shimmer toTop={toTop} removeShimmer={removeShimmer} height={500} />
             <Header />
             <main>
                 <Hero

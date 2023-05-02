@@ -33,7 +33,7 @@
     left: 0;
     top: 0;
     width: 100vw;
-    height: 100vh;
+    height: 125vh;
     background-color: var(--color-light-cream);
     overflow: scroll;
 }
@@ -59,7 +59,7 @@
 }
 
 .hero {
-    height: 500px;
+    // height: 500px;
     margin-bottom: 120px;
     @include test;
 }

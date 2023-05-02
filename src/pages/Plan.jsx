@@ -1,3 +1,4 @@
+import React from 'react';
 import Header from './../components/Header';
 import Hero from './../components/Hero';
 import How from '../components/How';
@@ -5,11 +6,23 @@ import Footer from '../components/Footer';
 import Shimmer from '../components/Shimmer';
 
 const Plan = function () {
+    const [removeShimmer, setRemoveShimmer] = React.useState(false);
     const toTop = () => window.scroll(0, 0);
+
+    const componentsWithImages = 1;
+    let loadedComponents = 0;
+
+    const checkImagesLoad = function () {
+        loadedComponents++;
+
+        if (componentsWithImages === loadedComponents) {
+            setTimeout(() => setRemoveShimmer(true), 250);
+        }
+    };
 
     return (
         <>
-            {/* <Shimmer toTop={toTop} /> */}
+            <Shimmer toTop={toTop} removeShimmer={removeShimmer} height={400} />
             <Header />
             <main>
                 <Hero
@@ -17,6 +30,7 @@ const Plan = function () {
                     title="Create plan"
                     text="Build a subscription plan that best fits your needs. We offer an assortment of the best artisan coffees from around the globe delivered fresh to your door."
                     button={false}
+                    checkImagesLoad={checkImagesLoad}
                 />
                 <How btn={false} />
             </main>

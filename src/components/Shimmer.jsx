@@ -7,17 +7,18 @@ const Shimmer = function (props) {
     props.toTop();
 
     React.useEffect(() => {
-        if (props.hideShimmer()) {
+        if (props.removeShimmer) {
             layout.current.classList.add(styles.hide);
             props.toTop();
         }
-    }, []);
+    }, [props.removeShimmer]);
 
     return (
         <div className={styles.shimmer} ref={layout}>
             <div className={styles.wrapper}>
                 <div className={styles.nav}></div>
-                <div className={styles.hero}></div>
+                {/* prettier-ignore */}
+                <div className={styles.hero} style={{ height: `${props.height}px` }}></div>
                 <div className={styles.title}></div>
 
                 <div className={styles.img}></div>
@@ -39,6 +40,7 @@ const Shimmer = function (props) {
 export default Shimmer;
 
 Shimmer.propTypes = {
-    toTop: PropTypes.any,
-    hideShimmer: PropTypes.func,
+    toTop: PropTypes.func,
+    removeShimmer: PropTypes.bool,
+    height: PropTypes.number,
 };
