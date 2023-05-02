@@ -1,0 +1,126 @@
+// // // // // // // // // // // // // // // // // // // //
+
+.section {
+    padding: 0 24px;
+}
+
+.wrapper {
+    max-width: 500px;
+    margin: 0 auto 120px auto;
+}
+
+// // // // // // // // // // // // // // // // // // // //
+
+.question {
+    &:not(:last-child) {
+        margin-bottom: 88px;
+    }
+}
+
+.rotate_arrow {
+    transform: rotate(180deg);
+}
+
+.button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    background-color: transparent;
+
+    cursor: pointer;
+
+    h2 {
+        pointer-events: none;
+
+        font-family: var(--fraunces);
+        color: var(--color-grey);
+        text-align: left;
+        font-weight: 900;
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    div {
+        margin-left: 64px;
+    }
+
+    svg {
+        transition: transform 0.25s;
+        pointer-events: none;
+    }
+}
+
+// // // // // // // // // // // // // // // // // // // //
+
+.boxes_wrapper {
+    display: none;
+    opacity: 0;
+    height: 0;
+
+    transition: height 0.25s, margin 0.25s;
+}
+
+.display_block {
+    display: block;
+}
+
+.set_height {
+    margin-top: 32px;
+    height: 452px;
+}
+
+.set_opacity {
+    transition: height 0.25s, margin 0.25s, opacity 0.15s 0.2s;
+    opacity: 1;
+}
+
+.box {
+    height: 140px;
+    background-color: hsla(43, 30%, 94%, 1);
+    border-radius: 8px;
+    padding: 24px 25px;
+
+    color: var(--color-dark-grey-blue);
+
+    cursor: pointer;
+
+    &:not(:last-child) {
+        margin-bottom: 16px;
+    }
+
+    &:hover {
+        background-color: var(--color-pale-orange);
+        color: var(--color-dark-grey-blue);
+    }
+}
+
+.active_box {
+    background-color: var(--color-dark-cyan);
+    color: var(--color-white);
+}
+
+.title {
+    font-family: var(--fraunces);
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 32px;
+
+    margin-bottom: 8px;
+}
+
+.text {
+    font-family: var(--barlow);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+// // // // // // // // // // // // // // // // // // // //
+
+.summary {
+    margin-bottom: 120px;
+}
+
+// // // // // // // // // // // // // // // // // // // //
