@@ -1,16 +1,32 @@
 import styles from './../styles/CreatePlan.module.scss';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 // prettier-ignore
 const icon_arrow = (<svg width="19" height="13" xmlns="http://www.w3.org/2000/svg"><path d="M15.949.586l2.828 2.828-9.096 9.096L.586 3.414 3.414.586l6.267 6.267z" fill="#0E8784" fillRule="nonzero" /></svg>);
+
+// // // // // // // // // // // // // // // // // // // //
 
 const Question = function (props) {
     const data = props.data;
 
     const toggleDropdown = function ({ target }) {
-        const svg = target.querySelector('svg');
+        console.log(target);
+
+        // prettier-ignore
+        const questionEls = [...target.closest(`.${styles.wrapper}`).querySelectorAll(`.${styles.question}`)];
         const question = target.closest(`.${styles.question}`);
         const wrapper = question.querySelector(`.${styles.boxes_wrapper}`);
+        const svg = target.querySelector('svg');
+
+        questionEls.forEach(q => {
+            if (question.dataset.dropdown === 'open') return;
+            q.dataset.dropdown = 'close';
+            q.querySelector('svg').classList.remove(styles.rotate_arrow);
+            const w = q.querySelector(`.${styles.boxes_wrapper}`);
+            w.classList.remove(styles.set_height, styles.set_opacity);
+            w.classList.remove(styles.display_block);
+        });
 
         if (question.dataset.dropdown === 'close') {
             question.dataset.dropdown = 'open';
@@ -20,7 +36,6 @@ const Question = function (props) {
             setTimeout(() => {
                 wrapper.classList.add(styles.set_height, styles.set_opacity);
             }, 1);
-
             return;
         }
 
@@ -31,7 +46,6 @@ const Question = function (props) {
             setTimeout(() => {
                 wrapper.classList.remove(styles.display_block);
             }, 250);
-
             return;
         }
     };
@@ -77,19 +91,38 @@ const Question = function (props) {
     );
 };
 
+// // // // // // // // // // // // // // // // // // // //
+
+const Summary = function () {
+    return (
+        <div className={styles.summary_wrapper}>
+            <p className={styles.summary_title}>Order Summary</p>
+            <p className={styles.summary_text}></p>
+        </div>
+    );
+};
+
+// // // // // // // // // // // // // // // // // // // //
+
 const CreatePlan = function (props) {
     return (
         <section className={styles.section}>
+            <nav className={styles.nav}></nav>
+
             <div className={styles.wrapper}>
                 {props.data.map((q, i) => {
                     return <Question data={q} key={i} />;
                 })}
             </div>
 
-            <article className={styles.summary}>summary</article>
+            <article className={styles.summary}>
+                <Summary />
+            </article>
         </section>
     );
 };
+
+// // // // // // // // // // // // // // // // // // // //
 
 CreatePlan.propTypes = {
     data: PropTypes.array,
@@ -100,3 +133,5 @@ Question.propTypes = {
 };
 
 export default CreatePlan;
+
+// // // // // // // // // // // // // // // // // // // //

@@ -20,6 +20,16 @@
 
 // // // // // // // // // // // // // // // // // // // //
 
+.nav {
+    display: none;
+
+    @media only screen and (min-width: 1110px) {
+        display: block;
+    }
+}
+
+// // // // // // // // // // // // // // // // // // // //
+
 .question {
     &:not(:last-child) {
         margin-bottom: 110px;
@@ -138,6 +148,11 @@
 .active_box {
     background-color: var(--color-dark-cyan);
     color: var(--color-white);
+
+    &:hover {
+        background-color: var(--color-dark-cyan);
+        color: var(--color-white);
+    }
 }
 
 .title {
@@ -167,6 +182,17 @@
 
 .summary {
     margin-bottom: 120px;
+}
+
+.summary_wrapper {
+}
+
+.summary_title {
+}
+
+.summary_text {
+    span {
+    }
 }
 
 // // // // // // // // // // // // // // // // // // // //
