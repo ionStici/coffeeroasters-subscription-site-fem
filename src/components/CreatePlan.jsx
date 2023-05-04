@@ -49,10 +49,62 @@ const CreatePlan = function (props) {
         target.classList.add(styles.accordion__box__active);
     };
 
+    const handleNavClick = function ({ target }) {
+        const wrapper = target.closest(`.${styles.wrapper}`);
+        const nav = target.closest(`.${styles.nav}`);
+        const btns = [...nav.querySelectorAll('button')];
+
+        if (target.classList.contains(styles.nav__active)) {
+            target.classList.remove(styles.nav__active);
+            return;
+        }
+
+        btns.forEach(btn => btn.classList.remove(styles.nav__active));
+        target.classList.add(styles.nav__active);
+    };
+
     return (
         <section className={styles.section}>
             <div className={styles.wrapper}>
-                <nav className={styles.nav}></nav>
+                <nav className={styles.nav}>
+                    <ul>
+                        <li>
+                            {/* prettier-ignore */}
+                            <button className={`${data[0].id === 1 ? styles.nav__active : ''}`} onClick={handleNavClick}>
+                                <span>01</span>
+                                <span>Preferences</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button onClick={handleNavClick}>
+                                <span>02</span>
+                                <span>Bean Type</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button onClick={handleNavClick}>
+                                <span>03</span>
+                                <span>Quantity</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button onClick={handleNavClick}>
+                                <span>04</span>
+                                <span>Grind Option</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button onClick={handleNavClick}>
+                                <span>05</span>
+                                <span>Deliveries</span>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
 
                 {/*  */}
                 <div className={styles.accordion}>

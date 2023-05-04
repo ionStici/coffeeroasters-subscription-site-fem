@@ -26,5 +26,3 @@ dist-ssr
 *.sketch
 *.fig
 *.xd
-.prettierrc
-.prettierignore
