@@ -1,123 +1,77 @@
 import styles from './../styles/CreatePlan.module.scss';
 import PropTypes from 'prop-types';
-import React from 'react';
-
-// prettier-ignore
-const icon_arrow = (<svg width="19" height="13" xmlns="http://www.w3.org/2000/svg"><path d="M15.949.586l2.828 2.828-9.096 9.096L.586 3.414 3.414.586l6.267 6.267z" fill="#0E8784" fillRule="nonzero" /></svg>);
-
-// // // // // // // // // // // // // // // // // // // //
-
-const Question = function (props) {
-    const data = props.data;
-
-    const toggleDropdown = function ({ target }) {
-        console.log(target);
-
-        // prettier-ignore
-        const questionEls = [...target.closest(`.${styles.wrapper}`).querySelectorAll(`.${styles.question}`)];
-        const question = target.closest(`.${styles.question}`);
-        const wrapper = question.querySelector(`.${styles.boxes_wrapper}`);
-        const svg = target.querySelector('svg');
-
-        questionEls.forEach(q => {
-            if (question.dataset.dropdown === 'open') return;
-            q.dataset.dropdown = 'close';
-            q.querySelector('svg').classList.remove(styles.rotate_arrow);
-            const w = q.querySelector(`.${styles.boxes_wrapper}`);
-            w.classList.remove(styles.set_height, styles.set_opacity);
-            w.classList.remove(styles.display_block);
-        });
-
-        if (question.dataset.dropdown === 'close') {
-            question.dataset.dropdown = 'open';
-            svg.classList.add(styles.rotate_arrow);
-
-            wrapper.classList.add(styles.display_block);
-            setTimeout(() => {
-                wrapper.classList.add(styles.set_height, styles.set_opacity);
-            }, 1);
-            return;
-        }
-
-        if (question.dataset.dropdown === 'open') {
-            question.dataset.dropdown = 'close';
-            svg.classList.remove(styles.rotate_arrow);
-            wrapper.classList.remove(styles.set_height, styles.set_opacity);
-            setTimeout(() => {
-                wrapper.classList.remove(styles.display_block);
-            }, 250);
-            return;
-        }
-    };
-
-    const setBoxActive = function ({ target }) {
-        if (target.classList.contains(styles.active_box)) {
-            target.classList.remove(styles.active_box);
-            return;
-        }
-
-        const boxes = [
-            ...target
-                .closest(`.${styles.boxes_wrapper}`)
-                .querySelectorAll(`.${styles.box}`),
-        ];
-
-        boxes.forEach(box => box.classList.remove(styles.active_box));
-        target.classList.add(styles.active_box);
-    };
-
-    return (
-        <div className={styles.question} data-dropdown="close">
-            <button className={styles.button} onClick={toggleDropdown}>
-                <h2>{data.question}</h2>
-                <div>{icon_arrow}</div>
-            </button>
-
-            <div className={styles.boxes_wrapper}>
-                {data.answers.map((a, i) => {
-                    return (
-                        <div
-                            className={`${styles.box}`}
-                            onClick={setBoxActive}
-                            key={i}
-                        >
-                            <p className={styles.title}>{a.title}</p>
-                            <p className={styles.text}>{a.text}</p>
-                        </div>
-                    );
-                })}
-            </div>
-        </div>
-    );
-};
-
-// // // // // // // // // // // // // // // // // // // //
-
-const Summary = function () {
-    return (
-        <div className={styles.summary_wrapper}>
-            <p className={styles.summary_title}>Order Summary</p>
-            <p className={styles.summary_text}></p>
-        </div>
-    );
-};
 
 // // // // // // // // // // // // // // // // // // // //
 
 const CreatePlan = function (props) {
+    const data = props.data;
+    // prettier-ignore
+    const iconArrow = (<svg width="19" height="13" xmlns="http://www.w3.org/2000/svg"><path d="M15.949.586l2.828 2.828-9.096 9.096L.586 3.414 3.414.586l6.267 6.267z" fill="#0E8784" fillRule="nonzero"/></svg>);
+
+    const handleDropdown = function ({ target }) {
+        const block = target.closest(`.${styles.accordion__block}`);
+        const arrow = block.querySelector('svg');
+        let status = block.dataset.dropdown;
+        const boxes = block.querySelector(`.${styles.accordion__boxes}`);
+
+        if (status === 'close') {
+            arrow.classList.add(styles.accordion__rotate);
+            boxes.classList.add(styles.display);
+            setTimeout(() => boxes.classList.add(styles.render), 1);
+
+            block.dataset.dropdown = 'open';
+            return;
+        }
+
+        if (status === 'open') {
+            arrow.classList.remove(styles.accordion__rotate);
+            boxes.classList.remove(styles.render);
+            setTimeout(() => boxes.classList.remove(styles.display), 250);
+
+            block.dataset.dropdown = 'close';
+            return;
+        }
+    };
+
     return (
         <section className={styles.section}>
-            <nav className={styles.nav}></nav>
-
             <div className={styles.wrapper}>
-                {props.data.map((q, i) => {
-                    return <Question data={q} key={i} />;
-                })}
-            </div>
+                <nav className={styles.nav}></nav>
 
-            <article className={styles.summary}>
-                <Summary />
-            </article>
+                {/*  */}
+                <div className={styles.accordion}>
+                    {data.map((q, i) => {
+                        return (
+                            <div
+                                className={styles.accordion__block}
+                                key={i}
+                                data-dropdown={'close'}
+                            >
+                                {/* prettier-ignore */}
+                                <button className={`${styles.accordion__btn}`} onClick={handleDropdown}>
+                                    <h2>{q.question}</h2>
+                                    <span>{iconArrow}</span>
+                                </button>
+
+                                <div className={styles.accordion__boxes}>
+                                    {q.answers.map((a, i) => {
+                                        return (
+                                            // prettier-ignore
+                                            <div className={`${styles.accordion__box}`} key={i}>
+                                                <h3>{a.title}</h3>
+                                                <p>{a.text}</p>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+                {/*  */}
+
+                <div className={styles.summary}></div>
+            </div>
         </section>
     );
 };
@@ -126,10 +80,6 @@ const CreatePlan = function (props) {
 
 CreatePlan.propTypes = {
     data: PropTypes.array,
-};
-
-Question.propTypes = {
-    data: PropTypes.object,
 };
 
 export default CreatePlan;
