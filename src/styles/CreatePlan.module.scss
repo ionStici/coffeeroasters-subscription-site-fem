@@ -5,21 +5,27 @@
     margin-bottom: 120px;
 
     @media only screen and (min-width: 768px) {
-    }
-
-    @media only screen and (min-width: 1110px) {
+        padding: 0 40px;
+        margin-bottom: 144px;
     }
 }
 
 .wrapper {
     max-width: 500px;
     margin: 0 auto;
+
+    @media only screen and (min-width: 768px) {
+        max-width: 730px;
+    }
 }
 
 // // // // // // // // // // // // // // // // // // // //
 
 .nav {
     display: none;
+
+    @media only screen and (min-width: 1110px) {
+    }
 }
 
 // // // // // // // // // // // // // // // // // // // //
@@ -30,6 +36,10 @@
     &__block {
         &:not(:last-child) {
             margin-bottom: 110px;
+
+            @media only screen and (min-width: 768px) {
+                margin-bottom: 100px;
+            }
         }
     }
 
@@ -50,11 +60,20 @@
             line-height: 28px;
             text-align: left;
             pointer-events: none;
+
+            @media only screen and (min-width: 768px) {
+                font-size: 32px;
+                line-height: 48px;
+            }
         }
 
         span {
             margin-left: 64px;
             pointer-events: none;
+
+            @media only screen and (min-width: 768px) {
+                margin-left: 0;
+            }
         }
 
         svg {
@@ -76,6 +95,10 @@
         height: 0;
         opacity: 0;
         transition: height 0.25s, margin 0.25s;
+
+        @media only screen and (min-width: 768px) {
+            justify-content: space-between;
+        }
     }
 
     &__box {
@@ -89,8 +112,19 @@
         transition: background-color 0.15s;
         cursor: pointer;
 
+        @media only screen and (min-width: 768px) {
+            max-width: 228px;
+            height: 100%;
+            padding: 32px 28px;
+        }
+
         &:not(:last-child) {
             margin-bottom: 16px;
+
+            @media only screen and (min-width: 768px) {
+                margin-bottom: 0;
+                margin-right: 10px;
+            }
         }
 
         &:hover {
@@ -103,6 +137,10 @@
             line-height: 32px;
             margin-bottom: 8px;
             pointer-events: none;
+
+            @media only screen and (min-width: 768px) {
+                margin-bottom: 24px;
+            }
         }
 
         p {
@@ -131,15 +169,24 @@
     }
 }
 
-.display {
+.display_boxes {
     display: block;
+
+    @media only screen and (min-width: 768px) {
+        display: flex;
+    }
 }
 
-.render {
+.render_boxes {
     height: 452px;
     margin-top: 32px;
     opacity: 1;
     transition: height 0.25s, margin 0.25s, opacity 0.15s 0.125s;
+
+    @media only screen and (min-width: 768px) {
+        height: 250px;
+        margin-top: 40px;
+    }
 }
 
 // // // // // // // // // // // // // // // // // // // //
