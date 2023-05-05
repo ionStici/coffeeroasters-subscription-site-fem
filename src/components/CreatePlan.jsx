@@ -72,7 +72,25 @@ const CreatePlan = function (props) {
     };
 
     const handleSidebarClick = function ({ target }) {
-        console.log(target);
+        const wrapper = target.closest(`.${styles.wrapper}`);
+        const nav = wrapper.querySelector(`.${styles.nav}`);
+        const acc = wrapper.querySelector(`.${styles.accordion}`);
+
+        const btns = [...nav.querySelectorAll('button')];
+        const blocks = [...acc.querySelectorAll(`.${styles.accordion__block}`)];
+
+        // add color indicator
+
+        btns.forEach((btn, i) => {
+            if (btn === target && blocks[i].dataset.complete === 'false') {
+                blocks[i].scrollIntoView({ behavior: 'smooth' });
+
+                blocks[i].classList.add(styles.accordion__block__pulse);
+                setTimeout(() => {
+                    blocks[i].classList.remove(styles.accordion__block__pulse);
+                }, 750);
+            }
+        });
     };
 
     return (
