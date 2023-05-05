@@ -8,8 +8,8 @@ const CreatePlan = function (props) {
 
     const handleDropdown = function ({ target }) {
         const block = target.closest(`.${styles.accordion__block}`);
-        const arrow = block.querySelector('svg');
         const boxes = block.querySelector(`.${styles.accordion__boxes}`);
+        const arrow = block.querySelector('svg');
 
         if (block.dataset.dropdown === 'close') {
             arrow.classList.add(styles.accordion__rotate);
@@ -31,8 +31,23 @@ const CreatePlan = function (props) {
     };
 
     const setBoxActive = function ({ target }) {
+        const wrapper = target.closest(`.${styles.wrapper}`);
+        const nav = wrapper.querySelector(`.${styles.nav}`);
+        const acc = wrapper.querySelector(`.${styles.accordion}`);
+        const btns = [...nav.querySelectorAll('button')];
+        const blocks = [...acc.querySelectorAll(`.${styles.accordion__block}`)];
+        const block = target.closest(`.${styles.accordion__block}`);
+
         if (target.classList.contains(styles.accordion__box__active)) {
             target.classList.remove(styles.accordion__box__active);
+            block.dataset.complete = 'false';
+
+            btns.forEach((btn, i) => {
+                if (blocks[i] === block) {
+                    btn.classList.remove(styles.nav__active);
+                }
+            });
+
             return;
         }
 
@@ -47,20 +62,17 @@ const CreatePlan = function (props) {
         });
 
         target.classList.add(styles.accordion__box__active);
+        block.dataset.complete = 'true';
+
+        btns.forEach((btn, i) => {
+            if (blocks[i].dataset.complete === 'true') {
+                btn.classList.add(styles.nav__active);
+            }
+        });
     };
 
-    const handleNavClick = function ({ target }) {
-        const wrapper = target.closest(`.${styles.wrapper}`);
-        const nav = target.closest(`.${styles.nav}`);
-        const btns = [...nav.querySelectorAll('button')];
-
-        if (target.classList.contains(styles.nav__active)) {
-            target.classList.remove(styles.nav__active);
-            return;
-        }
-
-        btns.forEach(btn => btn.classList.remove(styles.nav__active));
-        target.classList.add(styles.nav__active);
+    const handleSidebarClick = function ({ target }) {
+        console.log(target);
     };
 
     return (
@@ -70,35 +82,35 @@ const CreatePlan = function (props) {
                     <ul>
                         <li>
                             {/* prettier-ignore */}
-                            <button className={`${data[0].id === 1 ? styles.nav__active : ''}`} onClick={handleNavClick}>
+                            <button onClick={handleSidebarClick}>
                                 <span>01</span>
                                 <span>Preferences</span>
                             </button>
                         </li>
 
                         <li>
-                            <button onClick={handleNavClick}>
+                            <button onClick={handleSidebarClick}>
                                 <span>02</span>
                                 <span>Bean Type</span>
                             </button>
                         </li>
 
                         <li>
-                            <button onClick={handleNavClick}>
+                            <button onClick={handleSidebarClick}>
                                 <span>03</span>
                                 <span>Quantity</span>
                             </button>
                         </li>
 
                         <li>
-                            <button onClick={handleNavClick}>
+                            <button onClick={handleSidebarClick}>
                                 <span>04</span>
                                 <span>Grind Option</span>
                             </button>
                         </li>
 
                         <li>
-                            <button onClick={handleNavClick}>
+                            <button onClick={handleSidebarClick}>
                                 <span>05</span>
                                 <span>Deliveries</span>
                             </button>
@@ -111,7 +123,7 @@ const CreatePlan = function (props) {
                     {data.map((q, i) => {
                         return (
                             // prettier-ignore
-                            <div className={`${styles.accordion__block}`} key={i} data-dropdown={q.id === 1 ? 'open' : 'close'}>
+                            <div className={`${styles.accordion__block}`} key={i} data-dropdown={q.id === 1 ? 'open' : 'close'} data-complete={false}>
                                 {/* prettier-ignore */}
                                 <button className={`${styles.accordion__btn}`} onClick={handleDropdown}>
                                     <h2>{q.question}</h2>
@@ -136,7 +148,10 @@ const CreatePlan = function (props) {
                 </div>
                 {/*  */}
 
-                <div className={styles.summary}></div>
+                <div className={styles.summary}>
+                    <p className={styles.summary__title}></p>
+                    <p className={styles.summary__text}></p>
+                </div>
             </div>
         </section>
     );

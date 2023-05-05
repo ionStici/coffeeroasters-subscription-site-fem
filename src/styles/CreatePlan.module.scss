@@ -42,11 +42,11 @@
         line-height: 32px;
         list-style: none;
 
-        li:first-child {
-            span:first-child {
-                color: var(--color-dark-cyan);
-            }
-        }
+        // li:first-child {
+        //     span:first-child {
+        //         color: var(--color-dark-cyan);
+        //     }
+        // }
     }
 
     li:not(:last-child) {
@@ -83,6 +83,10 @@
 
     &__active {
         opacity: 1 !important;
+
+        span:first-child {
+            color: var(--color-dark-cyan) !important;
+        }
     }
 
     @media only screen and (min-width: 1110px) {
