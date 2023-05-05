@@ -1,5 +1,25 @@
 import styles from './../styles/CreatePlan.module.scss';
+import buttonStyles from './../styles/Hero.module.scss';
 import PropTypes from 'prop-types';
+
+// // // // // // // // // // // // // // // // // // // //
+
+const Summary = function (props) {
+    return (
+        <div className={styles.summary}>
+            <div className={styles.summary__wrapper}>
+                <p className={styles.summary__title}>Order Summary</p>
+                <div className={styles.summary__text_wrapper}>
+                    <p>“”</p>
+                </div>
+            </div>
+
+            <button className={`${buttonStyles.link} ${styles.btn}`}>
+                Create my plan!
+            </button>
+        </div>
+    );
+};
 
 // // // // // // // // // // // // // // // // // // // //
 
@@ -69,6 +89,17 @@ const CreatePlan = function (props) {
                 btn.classList.add(styles.nav__active);
             }
         });
+
+        // blocks.forEach(block => {
+        //     if (block.dataset.complete === 'true') {
+        //         const title = [...block.querySelectorAll('h3')].filter(h3 => {
+        //             return h3
+        //                 .closest(`.${styles.accordion__box}`)
+        //                 .classList.contains(styles.accordion__box__active);
+        //         });
+        //         const text = title[0].textContent;
+        //     }
+        // });
     };
 
     const handleSidebarClick = function ({ target }) {
@@ -78,8 +109,6 @@ const CreatePlan = function (props) {
 
         const btns = [...nav.querySelectorAll('button')];
         const blocks = [...acc.querySelectorAll(`.${styles.accordion__block}`)];
-
-        // add color indicator
 
         btns.forEach((btn, i) => {
             if (btn === target && blocks[i].dataset.complete === 'false') {
@@ -166,10 +195,7 @@ const CreatePlan = function (props) {
                 </div>
                 {/*  */}
 
-                <div className={styles.summary}>
-                    <p className={styles.summary__title}></p>
-                    <p className={styles.summary__text}></p>
-                </div>
+                <Summary />
             </div>
         </section>
     );
