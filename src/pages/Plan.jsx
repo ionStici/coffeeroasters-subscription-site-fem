@@ -21,15 +21,17 @@ const Plan = function () {
 
     const [modal, setModal] = React.useState(false);
     const renderModal = text => setModal(text);
+    const closeModal = () => setModal(false);
 
     return (
         <>
-            <Modal text={modal} />
-            {/* <Modal
-                text={
-                    '“I drink my coffee as Filter, with a Decaf type of bean. 250g ground ala Cafetiére, sent to me Every Week.”'
-                }
-            /> */}
+            <Modal
+                text={modal}
+                closeModal={closeModal}
+                // text={
+                //     '“I drink my coffee as Filter, with a Decaf type of bean. 250g ground ala Cafetiére, sent to me Every Week.”'
+                // }
+            />
 
             <Shimmer toTop={toTop} removeShimmer={removeShimmer} height={400} />
 
@@ -45,6 +47,7 @@ const Plan = function () {
                 <How btn={false} />
                 <CreatePlan
                     renderModal={renderModal}
+                    closeModal={closeModal}
                     data={[
                         {
                             id: 1,

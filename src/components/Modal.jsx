@@ -16,11 +16,9 @@ const Modal = function (props) {
 
     if (!props.text) return '';
 
-    const closeModal = function () {};
-
     return (
         <>
-            <div className={styles.bg_layout} onClick={closeModal}></div>
+            <div className={styles.bg_layout} onClick={props.closeModal}></div>
             <section className={styles.section}>
                 <div className={styles.wrapper}>
                     <div className={styles.top}>
@@ -36,7 +34,7 @@ const Modal = function (props) {
                     </p>
 
                     {!match ? (
-                        <Link className={`${buttonStyles.link}`} to="/plan">
+                        <Link className={`${buttonStyles.link}`} to="/">
                             Checkout - $14.00 / mo
                         </Link>
                     ) : (
@@ -45,7 +43,7 @@ const Modal = function (props) {
                     {match ? (
                         <div className={styles.btn_wrapper}>
                             <p>$14.00 / mo</p>
-                            <Link className={`${buttonStyles.link}`} to="/plan">
+                            <Link className={`${buttonStyles.link}`} to="/">
                                 Checkout
                             </Link>
                         </div>
@@ -60,6 +58,7 @@ const Modal = function (props) {
 
 Modal.propTypes = {
     text: PropTypes.any,
+    closeModal: PropTypes.func,
 };
 
 export default Modal;

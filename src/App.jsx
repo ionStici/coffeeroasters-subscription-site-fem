@@ -21,6 +21,8 @@ const router = createBrowserRouter([
         element: <Plan />,
     },
 ]);
+{
+}
 
 function App() {
     return <RouterProvider router={router} />;
