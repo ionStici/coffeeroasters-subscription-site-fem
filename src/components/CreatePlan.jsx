@@ -16,71 +16,58 @@ const Summary = function (props) {
         if (!all) btn.current.classList.add(styles.disabled);
     });
 
+    const text = (
+        <p>
+            “I drink my coffee
+            {data[0] === 'Capsule' ? ' using' : ' as'}
+            {data[0] ? (
+                <span className={styles.summary__green}>
+                    {' '}
+                    {data[0] === 'Capsule' ? 'Capsules' : data[0]}
+                </span>
+            ) : (
+                <span className={styles.summary__green}> _____</span>
+            )}
+            , with a
+            {data[1] ? (
+                <span className={styles.summary__green}> {data[1]} </span>
+            ) : (
+                <span className={styles.summary__green}> _____ </span>
+            )}
+            type of bean.{' '}
+            {data[2] ? (
+                <span className={styles.summary__green}>{data[2]}</span>
+            ) : (
+                <span className={styles.summary__green}>_____</span>
+            )}{' '}
+            {data[3] ? (
+                <>
+                    <span>ground ala</span>{' '}
+                    <span className={styles.summary__green}>{data[3]}</span>
+                </>
+            ) : (
+                ''
+            )}
+            , sent to me{' '}
+            {data[4] ? (
+                <span className={styles.summary__green}>{data[4]}</span>
+            ) : (
+                <span className={styles.summary__green}>_____</span>
+            )}
+            .”
+        </p>
+    );
+
     const handleClick = function ({ target }) {
         if (target.classList.contains(styles.disabled)) return;
-        console.log('click');
+        props.renderModal(text);
     };
 
     return (
         <div className={styles.summary}>
             <div className={styles.summary__wrapper}>
                 <p className={styles.summary__title}>Order Summary</p>
-                <div className={styles.summary__text_wrapper}>
-                    <p>
-                        “I drink my coffee
-                        {data[0] === 'Capsule' ? ' using' : ' as'}
-                        {data[0] ? (
-                            <span className={styles.summary__green}>
-                                {' '}
-                                {data[0] === 'Capsule' ? 'Capsules' : data[0]}
-                            </span>
-                        ) : (
-                            <span className={styles.summary__green}>
-                                {' '}
-                                _____
-                            </span>
-                        )}
-                        , with a
-                        {data[1] ? (
-                            <span className={styles.summary__green}>
-                                {' '}
-                                {data[1]}{' '}
-                            </span>
-                        ) : (
-                            <span className={styles.summary__green}>
-                                {' '}
-                                _____{' '}
-                            </span>
-                        )}
-                        type of bean.{' '}
-                        {data[2] ? (
-                            <span className={styles.summary__green}>
-                                {data[2]}
-                            </span>
-                        ) : (
-                            <span className={styles.summary__green}>_____</span>
-                        )}{' '}
-                        {data[3] ? (
-                            <>
-                                <span>ground ala</span>{' '}
-                                <span className={styles.summary__green}>
-                                    {data[3]}
-                                </span>
-                            </>
-                        ) : (
-                            ''
-                        )}
-                        , sent to me{' '}
-                        {data[4] ? (
-                            <span className={styles.summary__green}>
-                                {data[4]}
-                            </span>
-                        ) : (
-                            <span className={styles.summary__green}>_____</span>
-                        )}
-                        .”
-                    </p>
-                </div>
+                <div className={styles.summary__text_wrapper}>{text}</div>
             </div>
 
             <button
@@ -195,17 +182,6 @@ const CreatePlan = function (props) {
         });
 
         // // // // // // // // // // // // // // // // // // // //
-
-        // blocks.forEach(block => {
-        //     if (block.dataset.complete === 'true') {
-        //         const title = [...block.querySelectorAll('h3')].filter(h3 => {
-        //             return h3
-        //                 .closest(`.${styles.accordion__box}`)
-        //                 .classList.contains(styles.accordion__box__active);
-        //         });
-        //         const text = title[0].textContent;
-        //     }
-        // });
     };
 
     const handleSidebarClick = function ({ target }) {
@@ -301,7 +277,7 @@ const CreatePlan = function (props) {
                 </div>
                 {/*  */}
 
-                <Summary data={summary} />
+                <Summary renderModal={props.renderModal} data={summary} />
             </div>
         </section>
     );
@@ -311,10 +287,12 @@ const CreatePlan = function (props) {
 
 CreatePlan.propTypes = {
     data: PropTypes.array,
+    renderModal: PropTypes.func,
 };
 
 Summary.propTypes = {
     data: PropTypes.array,
+    renderModal: PropTypes.func,
 };
 
 export default CreatePlan;

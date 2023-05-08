@@ -5,6 +5,7 @@ import How from '../components/How';
 import Footer from '../components/Footer';
 import Shimmer from '../components/Shimmer';
 import CreatePlan from '../components/CreatePlan';
+import Modal from '../components/Modal';
 
 const Plan = function () {
     const [removeShimmer, setRemoveShimmer] = React.useState(false);
@@ -15,16 +16,23 @@ const Plan = function () {
 
     const checkImagesLoad = function () {
         loadedComponents++;
-
-        if (componentsWithImages === loadedComponents) {
-            // setTimeout(() => setRemoveShimmer(true), 250);
-            setRemoveShimmer(true);
-        }
+        if (componentsWithImages === loadedComponents) setRemoveShimmer(true);
     };
+
+    const [modal, setModal] = React.useState(false);
+    const renderModal = text => setModal(text);
 
     return (
         <>
+            <Modal text={modal} />
+            {/* <Modal
+                text={
+                    '“I drink my coffee as Filter, with a Decaf type of bean. 250g ground ala Cafetiére, sent to me Every Week.”'
+                }
+            /> */}
+
             <Shimmer toTop={toTop} removeShimmer={removeShimmer} height={400} />
+
             <Header />
             <main>
                 <Hero
@@ -36,6 +44,7 @@ const Plan = function () {
                 />
                 <How btn={false} />
                 <CreatePlan
+                    renderModal={renderModal}
                     data={[
                         {
                             id: 1,
