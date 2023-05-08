@@ -124,6 +124,7 @@
     }
 
     @media only screen and (min-width: 1110px) {
+        margin: revert;
         margin-bottom: 88px;
         grid-column: 2 / 3;
         grid-row: 1 / 2;
@@ -327,6 +328,15 @@
         padding: 32px 24px;
         border-radius: 10px;
         margin-bottom: 56px;
+
+        @media only screen and (min-width: 768px) {
+            padding: 27px 43px;
+            margin-bottom: 40px;
+        }
+
+        @media only screen and (min-width: 1110px) {
+            padding: 47px 64px;
+        }
     }
 
     &__title {
@@ -352,13 +362,18 @@
         color: var(--color-dark-cyan);
     }
 
-    &__hidden {
-        display: none;
-    }
-
     .btn {
         cursor: pointer;
         border: none;
+
+        @media only screen and (min-width: 768px) {
+            margin: 0 auto;
+        }
+
+        @media only screen and (min-width: 1110px) {
+            margin: revert;
+            margin-left: auto;
+        }
     }
 }
 

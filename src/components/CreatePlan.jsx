@@ -39,7 +39,33 @@ const Summary = function (props) {
                                 _____{' '}
                             </span>
                         )}
-                        type of bean.”
+                        type of bean.{' '}
+                        {data[2] ? (
+                            <span className={styles.summary__green}>
+                                {data[2]}
+                            </span>
+                        ) : (
+                            <span className={styles.summary__green}>_____</span>
+                        )}{' '}
+                        {data[3] ? (
+                            <>
+                                <span>ground ala</span>{' '}
+                                <span className={styles.summary__green}>
+                                    {data[3]}
+                                </span>
+                            </>
+                        ) : (
+                            ''
+                        )}
+                        , sent to me{' '}
+                        {data[4] ? (
+                            <span className={styles.summary__green}>
+                                {data[4]}
+                            </span>
+                        ) : (
+                            <span className={styles.summary__green}>_____</span>
+                        )}
+                        .”
                     </p>
                 </div>
             </div>
@@ -94,6 +120,11 @@ const CreatePlan = function (props) {
         const btns = [...nav.querySelectorAll('button')];
         const blocks = [...acc.querySelectorAll(`.${styles.accordion__block}`)];
         const block = target.closest(`.${styles.accordion__block}`);
+        const boxes = [
+            ...target
+                .closest(`.${styles.accordion__boxes}`)
+                .querySelectorAll(`.${styles.accordion__box}`),
+        ];
 
         if (target.classList.contains(styles.accordion__box__active)) {
             target.classList.remove(styles.accordion__box__active);
@@ -105,14 +136,20 @@ const CreatePlan = function (props) {
                 }
             });
 
+            // // // // // // // // // // // // // // // // // // // //
+
+            blocks.forEach((blk, i) => {
+                if (blk === block) {
+                    boxes.forEach(box => {
+                        if (box === target) setSummary[i](false);
+                    });
+                }
+            });
+
+            // // // // // // // // // // // // // // // // // // // //
+
             return;
         }
-
-        const boxes = [
-            ...target
-                .closest(`.${styles.accordion__boxes}`)
-                .querySelectorAll(`.${styles.accordion__box}`),
-        ];
 
         boxes.forEach(box => {
             box.classList.remove(styles.accordion__box__active);
@@ -259,9 +296,9 @@ CreatePlan.propTypes = {
     data: PropTypes.array,
 };
 
-// Summary.propTypes = {
-//     data: PropTypes.array,
-// };
+Summary.propTypes = {
+    data: PropTypes.array,
+};
 
 export default CreatePlan;
 
