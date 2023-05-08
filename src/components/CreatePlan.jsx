@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './../styles/CreatePlan.module.scss';
 import buttonStyles from './../styles/Hero.module.scss';
 import PropTypes from 'prop-types';
@@ -5,12 +6,41 @@ import PropTypes from 'prop-types';
 // // // // // // // // // // // // // // // // // // // //
 
 const Summary = function (props) {
+    const data = props.data;
+
     return (
         <div className={styles.summary}>
             <div className={styles.summary__wrapper}>
                 <p className={styles.summary__title}>Order Summary</p>
                 <div className={styles.summary__text_wrapper}>
-                    <p>“”</p>
+                    <p>
+                        “I drink my coffee
+                        {data[0] === 'Capsule' ? ' using' : ' as'}
+                        {data[0] ? (
+                            <span className={styles.summary__green}>
+                                {' '}
+                                {data[0] === 'Capsule' ? 'Capsules' : data[0]}
+                            </span>
+                        ) : (
+                            <span className={styles.summary__green}>
+                                {' '}
+                                _____
+                            </span>
+                        )}
+                        , with a
+                        {data[1] ? (
+                            <span className={styles.summary__green}>
+                                {' '}
+                                {data[1]}{' '}
+                            </span>
+                        ) : (
+                            <span className={styles.summary__green}>
+                                {' '}
+                                _____{' '}
+                            </span>
+                        )}
+                        type of bean.”
+                    </p>
                 </div>
             </div>
 
@@ -25,6 +55,13 @@ const Summary = function (props) {
 
 const CreatePlan = function (props) {
     const data = props.data;
+    const [word1, setWord1] = React.useState('Capsule');
+    const [word2, setWord2] = React.useState(false);
+    const [word3, setWord3] = React.useState(false);
+    const [word4, setWord4] = React.useState(false);
+    const [word5, setWord5] = React.useState(false);
+    const setSummary = [setWord1, setWord2, setWord3, setWord4, setWord5];
+    const summary = [word1, word2, word3, word4, word5];
 
     const handleDropdown = function ({ target }) {
         const block = target.closest(`.${styles.accordion__block}`);
@@ -89,6 +126,21 @@ const CreatePlan = function (props) {
                 btn.classList.add(styles.nav__active);
             }
         });
+
+        // // // // // // // // // // // // // // // // // // // //
+
+        blocks.forEach((blk, i) => {
+            if (blk === block) {
+                boxes.forEach(box => {
+                    if (box === target) {
+                        const text = target.querySelector('h3').textContent;
+                        setSummary[i](text);
+                    }
+                });
+            }
+        });
+
+        // // // // // // // // // // // // // // // // // // // //
 
         // blocks.forEach(block => {
         //     if (block.dataset.complete === 'true') {
@@ -195,7 +247,7 @@ const CreatePlan = function (props) {
                 </div>
                 {/*  */}
 
-                <Summary />
+                <Summary data={summary} />
             </div>
         </section>
     );
@@ -206,6 +258,10 @@ const CreatePlan = function (props) {
 CreatePlan.propTypes = {
     data: PropTypes.array,
 };
+
+// Summary.propTypes = {
+//     data: PropTypes.array,
+// };
 
 export default CreatePlan;
 
