@@ -6,7 +6,20 @@ import PropTypes from 'prop-types';
 // // // // // // // // // // // // // // // // // // // //
 
 const Summary = function (props) {
+    const btn = React.useRef(null);
     const data = props.data;
+    const dataExceptGrind = [data[0], data[1], data[2], data[4]];
+
+    React.useEffect(() => {
+        const all = dataExceptGrind.every(d => d);
+        if (all) btn.current.classList.remove(styles.disabled);
+        if (!all) btn.current.classList.add(styles.disabled);
+    });
+
+    const handleClick = function ({ target }) {
+        if (target.classList.contains(styles.disabled)) return;
+        console.log('click');
+    };
 
     return (
         <div className={styles.summary}>
@@ -70,7 +83,11 @@ const Summary = function (props) {
                 </div>
             </div>
 
-            <button className={`${buttonStyles.link} ${styles.btn}`}>
+            <button
+                className={`${buttonStyles.link} ${styles.btn} ${styles.disabled}`}
+                onClick={handleClick}
+                ref={btn}
+            >
                 Create my plan!
             </button>
         </div>

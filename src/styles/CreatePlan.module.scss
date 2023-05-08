@@ -375,6 +375,12 @@
             margin-left: auto;
         }
     }
+
+    .disabled {
+        color: var(--color-light-cream);
+        background-color: var(--color-disabled-btn);
+        cursor: default;
+    }
 }
 
 // // // // // // // // // // // // // // // // // // // //
