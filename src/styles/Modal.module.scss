@@ -12,23 +12,21 @@
     width: 100vw;
     height: 100vh;
     background-color: var(--color-black-05);
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(2px);
 }
 
 .section {
-    position: fixed;
+    position: absolute;
     z-index: 200;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
+    left: 0;
+    top: 0;
+
+    width: 100vw;
+    height: 100vh;
+
     display: flex;
     justify-content: center;
-
-    // @media only screen and (max-height: 677px) {
-    // top: 0;
-    // transform: translate(-50%, 0);
-    // }
+    align-items: center;
 }
 
 .wrapper {

@@ -41,14 +41,26 @@
 
 .home {
     height: 500px;
+
+    @media only screen and (min-width: 768px) {
+        height: 600px;
+    }
 }
 
 .about {
     height: 400px;
+
+    @media only screen and (min-width: 768px) {
+        height: 450px;
+    }
 }
 
 .plan {
     height: 400px;
+
+    @media only screen and (min-width: 768px) {
+        height: 450px;
+    }
 }
 
 .homeHeroImg {

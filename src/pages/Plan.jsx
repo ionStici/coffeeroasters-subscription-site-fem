@@ -25,14 +25,7 @@ const Plan = function () {
 
     return (
         <>
-            <Modal
-                // text={modal}
-                closeModal={closeModal}
-                text={
-                    '“I drink my coffee as Filter, with a Decaf type of bean. 250g ground ala Cafetiére, sent to me Every Week.”'
-                }
-            />
-
+            <Modal text={modal} closeModal={closeModal} />
             <Shimmer toTop={toTop} removeShimmer={removeShimmer} height={400} />
 
             <Header />
