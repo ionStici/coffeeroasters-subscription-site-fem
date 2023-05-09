@@ -14,14 +14,19 @@ const Modal = function (props) {
         return () => mediaMatch.removeEventListener('change', handler);
     });
 
+    React.useEffect(() => {
+        if (props.text) document.body.classList.add(styles.overflow_hidden);
+        return () => document.body.classList.remove(styles.overflow_hidden);
+    });
+
     if (!props.text) return '';
 
     return (
         <>
-            <div className={styles.bg_layout} onClick={props.closeModal}></div>
+            <div className={styles.bg_layout}></div>
             <section className={styles.section}>
                 <div className={styles.wrapper}>
-                    <div className={styles.top}>
+                    <div className={styles.top} onClick={props.closeModal}>
                         <h2 className={styles.title}>Order Summary</h2>
                     </div>
 
@@ -34,9 +39,14 @@ const Modal = function (props) {
                     </p>
 
                     {!match ? (
-                        <Link className={`${buttonStyles.link}`} to="/">
-                            Checkout - $14.00 / mo
-                        </Link>
+                        <div className={styles.btn_wrapper}>
+                            <Link
+                                className={`${buttonStyles.link} ${styles.btn}`}
+                                to="/"
+                            >
+                                Checkout - $14.00 / mo
+                            </Link>
+                        </div>
                     ) : (
                         ''
                     )}

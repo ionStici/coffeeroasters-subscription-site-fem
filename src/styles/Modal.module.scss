@@ -4,54 +4,132 @@
     overflow: hidden;
 }
 
-.bg_layout,
-.section {
-    position: fixed;
-}
-
 .bg_layout {
+    position: fixed;
     z-index: 150;
     left: 0;
     top: 0;
     width: 100vw;
     height: 100vh;
     background-color: var(--color-black-05);
-    cursor: pointer;
+    backdrop-filter: blur(1px);
 }
 
 .section {
+    position: fixed;
     z-index: 200;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background-color: var(--color-light-cream);
-    border-radius: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    // @media only screen and (max-height: 677px) {
+    // top: 0;
+    // transform: translate(-50%, 0);
+    // }
 }
 
 .wrapper {
+    background-color: var(--color-light-cream);
+    border-radius: 8px;
+    margin: 35px 24px;
+    padding-bottom: 24px;
+    max-width: 500px;
+    font-family: var(--fraunces);
+
+    @media only screen and (min-width: 768px) {
+        max-width: 540px;
+        margin: 40px;
+        padding-bottom: 56px;
+    }
 }
 
 // // // // // // // // // // // // // // // // // // // //
 
 .top {
+    background-color: var(--color-dark-grey-blue);
+    border-radius: 8px 8px 0 0;
+    padding: 0 24px;
+    margin-bottom: 40px;
+    height: 88px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    @media only screen and (min-width: 768px) {
+        padding: 0 56px;
+        height: 136px;
+        margin-bottom: 57px;
+    }
 }
 
 .title {
+    color: var(--color-white);
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 32px;
+
+    @media only screen and (min-width: 768px) {
+        font-size: 40px;
+        line-height: 48px;
+    }
 }
 
 .order_wrapper {
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 40px;
+    padding: 0 24px;
+
+    @media only screen and (min-width: 768px) {
+        padding: 0 56px;
+        margin-bottom: 7px;
+    }
 }
 
 .text {
+    color: var(--color-dark-grey-blue);
+    font-family: var(--barlow);
+    opacity: 0.8;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 25px;
+
+    margin-bottom: 24px;
+    padding: 0 24px;
+
+    @media only screen and (min-width: 768px) {
+        font-size: 16px;
+        line-height: 26px;
+        padding: 0 56px;
+        margin-bottom: 47px;
+    }
 }
 
 // // // // // // // // // // // // // // // // // // // //
 
 .btn_wrapper {
-    p {
+    padding: 0 24px;
+
+    @media only screen and (min-width: 768px) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 56px;
     }
 
-    button {
+    .btn {
+        width: 100% !important;
+    }
+
+    p {
+        @media only screen and (min-width: 768px) {
+            font-weight: 900;
+            font-size: 32px;
+            line-height: 36px;
+        }
     }
 }
 

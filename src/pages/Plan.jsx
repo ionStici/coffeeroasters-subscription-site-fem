@@ -26,11 +26,11 @@ const Plan = function () {
     return (
         <>
             <Modal
-                text={modal}
+                // text={modal}
                 closeModal={closeModal}
-                // text={
-                //     '“I drink my coffee as Filter, with a Decaf type of bean. 250g ground ala Cafetiére, sent to me Every Week.”'
-                // }
+                text={
+                    '“I drink my coffee as Filter, with a Decaf type of bean. 250g ground ala Cafetiére, sent to me Every Week.”'
+                }
             />
 
             <Shimmer toTop={toTop} removeShimmer={removeShimmer} height={400} />
